@@ -3,7 +3,7 @@ const router = Router();
 
 const nodemailer = require('nodemailer');
 
-router.get('/send-email', async (req, res) => {
+router.post('/send-email', async (req, res) => {
     const { name, email, phone, message } = req.params;
 
     contentHTML = `
