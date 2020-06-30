@@ -4,7 +4,7 @@ const router = Router();
 const nodemailer = require('nodemailer');
 
 router.post('/send-email', async (req, res) => {
-    const { name, email, phone, message } = req.params;
+    const { name, email, phone, message } = req.body;
 
     contentHTML = `
         <h1>User Information</h1>
@@ -39,7 +39,6 @@ router.post('/send-email', async (req, res) => {
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 
-    res.redirect('/success.html');
 });
 
 module.exports = router;
